@@ -1,25 +1,29 @@
 let workHours = ["9:00 AM", "10:00 AM", "11:00 AM", '12:00 PM', '1:00 PM', '2:00 PM', '3:00 PM', '4:00 PM', '5:00 PM'];
-var addRows = function(taskDescription) {
+var addRows = function (taskDescription) {
     for (i = 0; i < workHours.length; i++) {
         var rowDiv = $('<div>').addClass("row time-block");
         var timeDiv = $('<div>').text(workHours[i]).addClass("col-md-2 hour");
-        var textArea = $('<textarea>').attr('id','#task-text').addClass('col-md-9').text(taskDescription);
+        var textArea = $('<textarea>').attr('id', '#task-text').addClass('col-md-9').text(taskDescription);
         var saveBtn = $('<button>').addClass('btn saveBtn col-md-1');
         var saveBtnIcon = $('<i>').addClass('fas fa-save');
 
         $(rowDiv).append(timeDiv, textArea, saveBtn);
         $(saveBtn).append(saveBtnIcon);
         $(".container").append(rowDiv);
-    }
 
-    $(saveBtn).on('click', function() {
-        preventDefault();
-        localStorage.setItem(textArea,taskDescription );
-        alert(localStorage.getItem(textArea));
-        
+    }
+$(saveBtn).each(function() {
+    $(this).click(function(event) {
+        event.preventDefault();
+        localStorage.setItem(textArea, taskDescription);
     })
-}; 
+})
+textArea = (localStorage.setItem(textArea, JSON.stringify(taskDescription)));
+
+
+};
 addRows();
+
 
 
 
