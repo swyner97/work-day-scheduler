@@ -2,16 +2,26 @@ let workHours = ["9:00 AM", "10:00 AM", "11:00 AM", '12:00 PM', '1:00 PM', '2:00
 var addRows = function(taskDescription) {
     for (i = 0; i < workHours.length; i++) {
         var rowDiv = $('<div>').addClass("row time-block");
-        var timeDiv = $('<div>').text(workHours[i]).addClass("col-md-1 hour");
-        var textArea = $('<textarea>').addClass('col-md-10').text(taskDescription);
+        var timeDiv = $('<div>').text(workHours[i]).addClass("col-md-2 hour");
+        var textArea = $('<textarea>').attr('id','#task-text').addClass('col-md-9').text(taskDescription);
         var saveBtn = $('<button>').addClass('btn saveBtn col-md-1');
         var saveBtnIcon = $('<i>').addClass('fas fa-save');
 
         $(rowDiv).append(timeDiv, textArea, saveBtn);
         $(saveBtn).append(saveBtnIcon);
-        $(".container" + taskDescription).append(rowDiv);
+        $(".container").append(rowDiv);
     }
-};
+
+    $(saveBtn).on('click', function() {
+        preventDefault();
+        localStorage.setItem(textArea,taskDescription );
+        alert(localStorage.getItem(textArea));
+        
+    })
+}; 
+addRows();
+
+
 
 
 
@@ -33,3 +43,4 @@ let save = $('saveBtn');
 
 
 // 5. create if loop (now > #)
+
