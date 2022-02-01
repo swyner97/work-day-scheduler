@@ -242,6 +242,11 @@ var addRows = function (taskDescription) {
     }
 
 };
+// window will reload every 30 minutes to keep the past, present, future up to date
+
+window.setTimeout(function() {
+    window.location.reload();
+},30000);
 
 addRows();
 
