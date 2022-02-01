@@ -17,4 +17,5 @@ Workday app that allows the user to creates tasks and save in the browser. As th
  ## Check it out! 
 
  https://swyner97.github.io/work-day-scheduler/
- <img src =">
+ 
+ <img src ="https://raw.githubusercontent.com/swyner97/work-day-scheduler/main/assets/imgs/app-screenshot.png" alt="screenshot of workday app">
