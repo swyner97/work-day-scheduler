@@ -18,7 +18,7 @@ var addRows = function (taskDescription) {
 
     }
 
-    // for loop to ad ids to input fields 
+    // for loop to add ids to input fields to be able to select the save button and assign it a function
 
     function addTextAreaId() {
         let inputId = $('.description');
@@ -42,8 +42,6 @@ var addRows = function (taskDescription) {
 
     addSaveBtnId();
 
-
-
     var saveBtnId1 = $('#saveBtn-1');
     var saveBtnId2 = $('#saveBtn-2');
     var saveBtnId3 = $('#saveBtn-3');
@@ -64,11 +62,7 @@ var addRows = function (taskDescription) {
     let textArea8 = $("#text-area-8");
     let textArea9 = $("#text-area-9");
 
-    // save data to localStorage 
-
-    
-
- 
+    // save data to localStorage by selecting the id from the earlier for loop
 
     // button 1
     $(saveBtnId1).on('click', function (event) {
@@ -109,7 +103,7 @@ var addRows = function (taskDescription) {
     });   
     
     let savedData4 = (localStorage.getItem('toDo4'));
-    textArea3.val(savedData4);
+    textArea4.val(savedData4);
 
     // button 5
     $(saveBtnId5).on('click', function (event) {
@@ -156,47 +150,98 @@ var addRows = function (taskDescription) {
     // button 9 
     $(saveBtnId9).on('click', function (event) {
         event.preventDefault();
-        let textArea9 = $('text-area-9').val().trim();
+        console.log(saveBtnId9);
+        let textArea9 = $('#text-area-9').val().trim();
         localStorage.setItem('toDo9', (textArea9));
     });
 
     let savedData9 = (localStorage.getItem('toDo9'));
-    textArea9.val(savedData8);
+    textArea9.val(savedData9);
 
+    // if else statement to show past, present future events 
 
+    let now = new Date().getHours();
+    if (now > 8) {
+      $("#text-area-1").addClass("past");
+    } else if (now >= 8 && now < 9) {
+      $("#text-area-1").addClass("present");
+    } else if (now < 8) {
+      $("#text-area-1").addClass("future");
+    }
 
-}
+    if (now > 9) {
+      $("#text-area-2").addClass("past");
+    } else if (now >= 9 && now < 10) {
+      $("#text-area-2").addClass("present");
+    } else if (now < 9) {
+      $("#text-area-2").addClass("future");
+    }
 
+    if (now > 10) {
+      $("#text-area-3").addClass("past");
+    } else if (now >= 10 && now < 11) {
+      $("#text-area-3").addClass("present");
+    } else if (now < 10) {
+      $("#text-area-3").addClass("future");
+    }
 
-// for (i = 0; i < 9; i++) {
-//     let save = $('#saveBtn-1')
-//     $(save).click(function(event) {
-//         let textArea = $("#text-area-1")
-//         let value = $(textArea).val()
-//         localStorage.setItem(`{i}`, value)
-//     })
+    if (now > 11) {
+      $("#text-area-4").addClass("past");
+    } else if (now >= 11 && now < 12) {
+      $("#text-area-4").addClass("present");
+    } else if (now < 11) {
+      $("#text-area-4").addClass("future");
+    }
+
+    if (now > 12) {
+      $("#text-area-5").addClass("past");
+    } else if (now >= 12 && now < 13) {
+      $("#text-area-5").addClass("present");
+    } else if (now < 12) {
+      $("#text-area-5").addClass("future");
+    }
+
+    if (now > 13) {
+      $("#text-area-6").addClass("past");
+    } else if (now >= 13 && now < 14) {
+      $("#text-area-6").addClass("present");
+    } else if (now < 13) {
+      $("#text-area-6").addClass("future");
+    }
+
+    if (now > 14) {
+      $("#text-area-7").addClass("past");
+    } else if (now >= 14 && now < 15) {
+      $("#text-area-7").addClass("present");
+    } else if (now < 14) {
+      $("#text-area-7").addClass("future");
+    }
+
+    if (now > 15) {
+      $("#text-area-8").addClass("past");
+    } else if (now >= 15 && now < 16) {
+      $("#text-area-8").addClass("present");
+    } else if (now < 15) {
+      $("#text-area-8").addClass("future");
+    }
+
+    if (now > 16) {
+      $("#text-area-9").addClass("past");
+    } else if (now >= 16 && now < 17) {
+      $("#text-area-9").addClass("present");
+    } else if (now < 16) {
+      $("#text-area-9").addClass("future");
+    }
+
+    if (now > 17) {
+      $("#text-area-10").addClass("past");
+    } else if (now >= 17 && now < 18) {
+      $("#text-area-10").addClass("present");
+    } else if (now < 17) {
+      $("#text-area-10").addClass("future");
+    }
+
+};
 
 addRows();
-
-
-
-
-
-
-
-
-
-// 1. display current date and time using moment.js
-
-
-// 2. assign variables to hours
-
-
-// 3. assign variable to saveBtn
-
-
-// 4. set function .on('click')to saveBtn and preventDefault\
-
-
-// 5. create if loop (now > #)
 
